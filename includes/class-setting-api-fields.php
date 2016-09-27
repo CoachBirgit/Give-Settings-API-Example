@@ -273,6 +273,7 @@ class Give_Setting_API_Fields {
 					'desc' => '',
 					'id'   => 'give_number_field_settings',
 					'type' => 'number',
+					'css'  => 'width:12em;'
 				),
 				array(
 					'id'   => 'give_number_field_settings',
@@ -290,10 +291,11 @@ class Give_Setting_API_Fields {
 					'type' => 'title'
 				),
 				array(
-					'name' => esc_html__( 'Number Field Settings', 'give' ),
+					'name' => esc_html__( 'Password Field Settings', 'give' ),
 					'desc' => '',
 					'id'   => 'give_password_field_settings',
 					'type' => 'password',
+					'css'  => 'width:12em;'
 				),
 				array(
 					'id'   => 'give_password_field_settings',
