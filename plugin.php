@@ -8,6 +8,19 @@
  * Version:            0.1
  */
 
-// Bootstrap
-require_once dirname( __FILE__ ) . '/includes/class-setting-api-fields.php';
-require_once dirname( __FILE__ ) . '/includes/class-metabox-setting.php';
+
+/**
+ * Initialize new setting.
+ *
+ * @param  array $settings
+ * @return array
+ */
+function give_add_setting_api_fields_settings( $settings ){
+	// Bootstrap.
+	require_once dirname( __FILE__ ) . '/includes/class-setting-api-fields.php';
+	require_once dirname( __FILE__ ) . '/includes/class-metabox-setting.php';
+
+	$settings[] = new Give_Setting_API_Fields();
+	return $settings;
+}
+add_filter( 'give-settings_get_settings_pages', 'give_add_setting_api_fields_settings' );
