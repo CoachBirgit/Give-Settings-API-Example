@@ -1,4 +1,10 @@
 <?php
+// Exit if access directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
 /**
  * Example code to show how to add metabox tab to give form data settingd.
  *

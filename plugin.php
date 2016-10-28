@@ -39,6 +39,11 @@
  *
  */
 
+// Exit if access directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Add custom core plugin setting.
  *
