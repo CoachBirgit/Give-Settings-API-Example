@@ -124,9 +124,88 @@ class Give_Metabox_Setting_Fields{
 					'id'          => 'colorpicker',
 					'name'        => __( 'Color Picker', 'give' ),
 					'type'        => 'colorpicker',
-					'description' => __( 'This is colorpicker field.', 'give' )
-				)
-			)
+					'description' => __( 'This is colorpicker field.', 'give' ),
+				),
+
+				// Repeater field.
+				array(
+					'id'      => $this->prefix . 'repeater',
+					'type'    => 'group',
+					'options' => array(
+						'add_button'    => esc_html__( 'Add row', 'give' ),
+						'header_title'  => esc_html__( 'Group', 'give' ),
+						'remove_button' => '<span class="dashicons dashicons-no"></span>',
+					),
+
+
+					'fields' => array(
+						array(
+							'name' => esc_html__( 'Text Small', 'give' ),
+							'id'   => 'test_small',
+							'type' => 'text-small',
+						),
+						array(
+							'name' => esc_html__( 'Text Medium', 'give' ),
+							'id'   => 'text_medium',
+							'type' => 'text-medium',
+						),
+						array(
+							'name' => esc_html__( 'Text', 'give' ),
+							'id'   => 'text',
+							'type' => 'text',
+						),
+						array(
+							'name' => esc_html__( 'Textarea', 'give' ),
+							'id'   => 'textarea',
+							'type' => 'textarea',
+						),
+						array(
+							'name' => esc_html__( 'Checkbox', 'give' ),
+							'id'   => 'checkbox',
+							'type' => 'checkbox',
+						),
+						array(
+							'name'    => esc_html__( 'Select', 'give' ),
+							'id'      => 'select',
+							'type'    => 'select',
+							'default' => 'option3',
+							'options' => array(
+								'option1' => __( 'Option 1', 'give' ),
+								'option2' => __( 'Option 2', 'give' ),
+								'option3' => __( 'Option 3', 'give' ),
+							),
+						),
+						array(
+							'name'    => esc_html__( 'Radio', 'give' ),
+							'id'      => 'radio',
+							'type'    => 'radio',
+							'default' => 'option1',
+							'options' => array(
+								'option1' => __( 'Option 1', 'give' ),
+								'option2' => __( 'Option 2', 'give' ),
+								'option3' => __( 'Option 3', 'give' ),
+							),
+						),
+						array(
+							'name'    => esc_html__( 'Radio Inline', 'give' ),
+							'id'      => 'radio_inline',
+							'type'    => 'radio_inline',
+							'default' => 'option3',
+							'options' => array(
+								'option1' => __( 'Option 1', 'give' ),
+								'option2' => __( 'Option 2', 'give' ),
+								'option3' => __( 'Option 3', 'give' ),
+							),
+						),
+						array(
+							'name'        => __( 'Color Picker', 'give' ),
+							'type'        => 'colorpicker',
+							'id'          => 'colorpicker',
+							'description' => __( 'This is colorpicker field.', 'give' ),
+						),
+					),
+				),
+			),
 		);
 
 		return $settings;
