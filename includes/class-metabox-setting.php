@@ -130,9 +130,11 @@ class Give_Metabox_Setting_Fields {
 
 				// Repeater field.
 				array(
-					'id'      => $this->prefix . 'repeater',
-					'type'    => 'group',
-					'options' => array(
+					'id'          => $this->prefix . 'repeater',
+					'name'        => esc_html__( 'Repeater Field', 'give' ),
+					'type'        => 'group',
+					'description' => esc_html__( 'This is repeater field.', 'give' ),
+					'options'     => array(
 						'add_button'    => esc_html__( 'Add row', 'give' ),
 						'header_title'  => esc_html__( 'Group', 'give' ),
 						'remove_button' => '<span class="dashicons dashicons-no"></span>',
