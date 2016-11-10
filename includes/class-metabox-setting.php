@@ -206,6 +206,12 @@ class Give_Metabox_Setting_Fields {
 							'id'          => 'colorpicker',
 							'description' => __( 'This is colorpicker field.', 'give' ),
 						),
+						array(
+							'id'          => 'wysiwyg',
+							'name'        => __( 'WordPress Editor', 'give' ),
+							'type'        => 'wysiwyg',
+							'description' => __( 'This is wysiwyg field.', 'give' ),
+						)
 					),
 				),
 			),
