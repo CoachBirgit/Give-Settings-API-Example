@@ -135,9 +135,11 @@ class Give_Metabox_Setting_Fields {
 					'type'        => 'group',
 					'description' => esc_html__( 'This is repeater field.', 'give' ),
 					'options'     => array(
-						'add_button'    => esc_html__( 'Add row', 'give' ),
-						'header_title'  => esc_html__( 'Group', 'give' ),
-						'remove_button' => '<span class="dashicons dashicons-no"></span>',
+						'add_button'      => esc_html__( 'Add row', 'give' ),
+						'header_title'    => esc_html__( 'Group', 'give' ),
+						'remove_button'   => '<span class="dashicons dashicons-no"></span>',
+						'group_numbering' => true,
+						'close_tabs'      => true,
 					),
 
 
