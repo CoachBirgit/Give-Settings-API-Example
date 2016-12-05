@@ -128,6 +128,32 @@ class Give_Metabox_Setting_Fields {
 					'description' => __( 'This is colorpicker field.', 'give' ),
 				),
 
+				// Text Decimal.
+				array(
+					'id'          => 'text-decimal',
+					'name'        => __( 'Decimal Field', 'give' ),
+					'type'        => 'text-small',
+					'data_type'   => 'decimal',
+					'description' => __( 'This is small text input field for decimal values.', 'give' ),
+					'attributes'  => array(
+						'placeholder' => give_format_decimal( '1.00' ),
+						'class'       => 'give-money-field',
+					),
+				),
+
+				// Text Amount.
+				array(
+					'id'          => 'text-amount',
+					'name'        => __( 'Amount Field', 'give' ),
+					'type'        => 'text-small',
+					'data_type'   => 'price',
+					'description' => __( 'This is small text input field for price.', 'give' ),
+					'attributes'  => array(
+						'placeholder' => give_format_decimal( '1.00' ),
+						'class'       => 'give-money-field',
+					),
+				),
+
 				// Repeater field.
 				array(
 					'id'          => $this->prefix . 'repeater',
