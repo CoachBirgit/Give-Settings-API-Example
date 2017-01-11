@@ -277,6 +277,12 @@ class Give_Metabox_Setting_Fields {
 					),
 				),
 			),
+			array(
+				'name'  => 'donation_options_docs',
+				'type'  => 'docs_link',
+				'url'   => '#',
+				'title' => esc_html__( 'Donation Options', 'give' ),
+			),
 		);
 	}
 }
