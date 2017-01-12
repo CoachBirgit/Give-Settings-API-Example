@@ -40,18 +40,18 @@ class Give_Metabox_Setting_Fields {
 				array(
 					'id'     => "{$this->id}_sub_fields_1",
 					'title'  => __( 'Sub Field 1', 'give' ),
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_1" )
+					'fields' => $this->get_fields( "{$this->id}_sub_fields_1" ),
 				),
 				array(
 					'id'     => "{$this->id}_sub_fields_2",
 					'title'  => __( 'Sub Field 2', 'give' ),
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_2" )
+					'fields' => $this->get_fields( "{$this->id}_sub_fields_2" ),
 				),
 				array(
 					'id'     => "{$this->id}_sub_fields_3",
 					'title'  => __( 'Sub Field 3', 'give' ),
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_3" )
-				)
+					'fields' => $this->get_fields( "{$this->id}_sub_fields_3" ),
+				),
 			),
 		);
 
@@ -63,9 +63,10 @@ class Give_Metabox_Setting_Fields {
 	 * Get different types of setting field.
 	 *
 	 * @param string $id_prefix
+	 *
 	 * @return array
 	 */
-	public function get_fields( $id_prefix = '') {
+	public function get_fields( $id_prefix = '' ) {
 		return array(
 			// Text small.
 			array(
