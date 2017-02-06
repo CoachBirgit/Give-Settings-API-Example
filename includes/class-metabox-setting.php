@@ -23,6 +23,7 @@ class Give_Metabox_Setting_Fields {
 		$this->prefix = '_give_';
 
 		add_filter( 'give_metabox_form_data_settings', array( $this, 'setup_setting' ), 999 );
+		add_action( 'admin_footer', array( $this, 'admin_js' ) );
 	}
 
 	function setup_setting( $settings ) {
@@ -51,6 +52,23 @@ class Give_Metabox_Setting_Fields {
 					'id'     => "{$this->id}_sub_fields_3",
 					'title'  => __( 'Sub Field 3', 'give' ),
 					'fields' => $this->get_fields( "{$this->id}_sub_fields_3" ),
+				),
+			),
+		);
+
+		// Custom metabox settings.
+		$settings["{$this->id}_custom"] = array(
+			'id'     => "{$this->id}_custom",
+			'title'  => __( 'Custom Metabox Settings', 'give' ),
+			'fields' => array(
+				array(
+					'id'       => "{$this->id}_datepicker",
+					'name'     => __( 'Datepicker', 'give' ),
+					'type'     => 'datepicker',
+					'desc'     => __( 'Custom datepicker field.', 'give' ),
+					// Give metabox api by default call give_*field_type* function,
+					// You can override that function call by passing callback array key.
+					'callback' => array( $this, 'datepicker_field' ),
 				),
 			),
 		);
@@ -285,6 +303,51 @@ class Give_Metabox_Setting_Fields {
 				'title' => esc_html__( 'Donation Options', 'give' ),
 			),
 		);
+	}
+
+	/**
+	 * Setting JS.
+	 *
+	 * @access public
+	 */
+	public function admin_js() {
+		$screen = get_current_screen();
+
+		if ( 'give_forms' !== $screen->post_type || 'edit' !== $screen->parent_base ) {
+			return;
+		}
+
+		?>
+		<script>
+			jQuery(document).ready(function () {
+				jQuery('.give-datepicker').datepicker();
+			});
+		</script>
+		<?php
+	}
+
+
+	/**
+	 * Custom datepicker field.
+	 *
+	 * @access public
+	 *
+	 * @param $field
+	 */
+	function datepicker_field( $field ) {
+		global $thepostid;
+
+		// Datepicker script.
+		wp_enqueue_script( 'jquery-ui-datepicker' );
+
+		$field['value'] = give_get_field_value( $field, $thepostid );
+
+		echo '<p class="give-field-wrap ' . esc_attr( $field['id'] ) . '_field"><label for="' . give_get_field_name( $field ) . '">' . wp_kses_post( $field['name'] ) . '</label><input name="' . give_get_field_name( $field ) . '" id="' . esc_attr( $field['id'] ) . '" value="' . $field['value'] . '" class="give-datepicker">';
+
+		if ( ! empty( $field['description'] ) ) {
+			echo '<span class="give-field-description">' . wp_kses_post( $field['description'] ) . '</span>';
+		}
+		echo '</p>';
 	}
 }
 
