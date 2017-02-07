@@ -208,6 +208,16 @@ class Give_Metabox_Setting_Fields {
 				),
 			),
 
+			// Media Field.
+			array(
+				'id'   => "{$id_prefix}_media",
+				'name' => __( 'Media Upload', 'give' ),
+				'type' => 'media',
+				'desc' => __( 'Upload attachments', 'give' ),
+				// which value you want to save in form meta ( attachment ID/ URL).
+				// 'fvalue' => 'id/url'
+			),
+
 			// Repeater field.
 			array(
 				'id'          => "{$id_prefix}_repeater",
@@ -293,6 +303,12 @@ class Give_Metabox_Setting_Fields {
 						'name'        => __( 'WordPress Editor', 'give' ),
 						'type'        => 'wysiwyg',
 						'description' => __( 'This is wysiwyg field.', 'give' ),
+					),
+					array(
+						'id'   => "media",
+						'name' => __( 'Media Upload', 'give' ),
+						'type' => 'media',
+						'desc' => __( 'Upload attachments', 'give' ),
 					),
 				),
 			),
