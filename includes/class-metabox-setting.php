@@ -41,16 +41,19 @@ class Give_Metabox_Setting_Fields {
 				array(
 					'id'     => "{$this->id}_sub_fields_1",
 					'title'  => __( 'Sub Field 1', 'give' ),
+					'icon-html' => '<i class="give-icon give-icon-heart"></i>',
 					'fields' => $this->get_fields( "{$this->id}_sub_fields_1" ),
 				),
 				array(
 					'id'     => "{$this->id}_sub_fields_2",
 					'title'  => __( 'Sub Field 2', 'give' ),
+					'icon-html' => '<span class="give-icon give-icon-heart"></span>',
 					'fields' => $this->get_fields( "{$this->id}_sub_fields_2" ),
 				),
 				array(
 					'id'     => "{$this->id}_sub_fields_3",
 					'title'  => __( 'Sub Field 3', 'give' ),
+					'icon-html' => '<span class="give-icon give-icon-heart"></span>',
 					'fields' => $this->get_fields( "{$this->id}_sub_fields_3" ),
 				),
 			),
@@ -60,6 +63,7 @@ class Give_Metabox_Setting_Fields {
 		$settings["{$this->id}_custom"] = array(
 			'id'     => "{$this->id}_custom",
 			'title'  => __( 'Custom Metabox Settings', 'give' ),
+			'icon-html' => '<span class="give-icon give-icon-target"></span>',
 			'fields' => array(
 				array(
 					'id'       => "{$this->id}_datepicker",
