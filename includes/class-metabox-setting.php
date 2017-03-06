@@ -27,14 +27,14 @@ class Give_Metabox_Setting_Fields {
 	}
 
 	function setup_setting( $settings ) {
-		$settings["{$this->id}_simple"] = array(
+		$settings[ "{$this->id}_simple" ] = array(
 			'id'     => "{$this->id}_simple",
 			'title'  => __( 'Simple Metabox Settings', 'give' ),
 			'fields' => $this->get_fields( "{$this->id}_simple" ),
 		);
 
 		// Sub tab setting.
-		$settings["{$this->id}_sub_fields"] = array(
+		$settings[ "{$this->id}_sub_fields" ] = array(
 			'id'         => "{$this->id}_sub_fields",
 			'title'      => __( 'Subfields Metabox Settings', 'give' ),
 			'sub-fields' => array(
@@ -57,7 +57,7 @@ class Give_Metabox_Setting_Fields {
 		);
 
 		// Custom metabox settings.
-		$settings["{$this->id}_custom"] = array(
+		$settings[ "{$this->id}_custom" ] = array(
 			'id'     => "{$this->id}_custom",
 			'title'  => __( 'Custom Metabox Settings', 'give' ),
 			'fields' => array(
@@ -221,7 +221,6 @@ class Give_Metabox_Setting_Fields {
 					'group_numbering' => true,
 					'close_tabs'      => true,
 				),
-
 
 				'fields' => array(
 					array(

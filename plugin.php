@@ -36,7 +36,6 @@
  * Give - Setting API Fields Example would not have been possible without the tireless efforts of WordPress and the surrounding Open Source projects and their talented developers. Thank you all for your contribution to WordPress.
  *
  * - The WordImpress Team
- *
  */
 
 // Exit if access directly.
