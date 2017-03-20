@@ -91,7 +91,6 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'desc'              => '',
 						'id'                => 'give_multi_checkbox_field_settings',
 						'type'              => 'multicheck',
-						'select_all_button' => false,
 						'default'           => array( 'daily', 'monthly' ),
 						'options'           => array(
 							'daily'   => 'Daily',
