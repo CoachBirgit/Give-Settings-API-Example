@@ -86,6 +86,14 @@ class Give_Metabox_Setting_Fields {
 	 */
 	public function get_fields( $id_prefix = '' ) {
 		return array(
+			// Text Hidden.
+			array(
+				'id'          => "{$id_prefix}_text_hidden",
+				'name'        => __( 'Text Hidden', 'give' ),
+				'type'        => 'hidden',
+				'value'       => true,
+			),
+
 			// Text small.
 			array(
 				'id'          => "{$id_prefix}_text_small",
