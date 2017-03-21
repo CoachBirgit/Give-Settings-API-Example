@@ -39,32 +39,32 @@ class Give_Metabox_Setting_Fields {
 			'title'      => __( 'Subfields Metabox Settings', 'give' ),
 			'sub-fields' => array(
 				array(
-					'id'     => "{$this->id}_sub_fields_1",
-					'title'  => __( 'Sub Field 1', 'give' ),
+					'id'        => "{$this->id}_sub_fields_1",
+					'title'     => __( 'Sub Field 1', 'give' ),
 					'icon-html' => '<i class="give-icon give-icon-heart"></i>',
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_1" ),
+					'fields'    => $this->get_fields( "{$this->id}_sub_fields_1" ),
 				),
 				array(
-					'id'     => "{$this->id}_sub_fields_2",
-					'title'  => __( 'Sub Field 2', 'give' ),
+					'id'        => "{$this->id}_sub_fields_2",
+					'title'     => __( 'Sub Field 2', 'give' ),
 					'icon-html' => '<span class="give-icon give-icon-heart"></span>',
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_2" ),
+					'fields'    => $this->get_fields( "{$this->id}_sub_fields_2" ),
 				),
 				array(
-					'id'     => "{$this->id}_sub_fields_3",
-					'title'  => __( 'Sub Field 3', 'give' ),
+					'id'        => "{$this->id}_sub_fields_3",
+					'title'     => __( 'Sub Field 3', 'give' ),
 					'icon-html' => '<span class="give-icon give-icon-heart"></span>',
-					'fields' => $this->get_fields( "{$this->id}_sub_fields_3" ),
+					'fields'    => $this->get_fields( "{$this->id}_sub_fields_3" ),
 				),
 			),
 		);
 
 		// Custom metabox settings.
 		$settings["{$this->id}_custom"] = array(
-			'id'     => "{$this->id}_custom",
-			'title'  => __( 'Custom Metabox Settings', 'give' ),
+			'id'        => "{$this->id}_custom",
+			'title'     => __( 'Custom Metabox Settings', 'give' ),
 			'icon-html' => '<span class="give-icon give-icon-target"></span>',
-			'fields' => array(
+			'fields'    => array(
 				array(
 					'id'       => "{$this->id}_datepicker",
 					'name'     => __( 'Datepicker', 'give' ),
@@ -92,10 +92,10 @@ class Give_Metabox_Setting_Fields {
 		return array(
 			// Text Hidden.
 			array(
-				'id'          => "{$id_prefix}_text_hidden",
-				'name'        => __( 'Text Hidden', 'give' ),
-				'type'        => 'hidden',
-				'value'       => true,
+				'id'    => "{$id_prefix}_text_hidden",
+				'name'  => __( 'Text Hidden', 'give' ),
+				'type'  => 'hidden',
+				'value' => true,
 			),
 
 			// Text small.
@@ -218,6 +218,15 @@ class Give_Metabox_Setting_Fields {
 					'placeholder' => give_format_decimal( '1.00' ),
 					'class'       => 'give-money-field',
 				),
+			),
+
+			// Media.
+			array(
+				'id'          => "{$id_prefix}_media",
+				'name'        => __( 'Media Field', 'give' ),
+				'type'        => 'media',
+				'description' => __( 'This is media field.', 'give' ),
+				// 'fvalue'      => 'id',
 			),
 
 			// Repeater field.
