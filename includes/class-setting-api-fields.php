@@ -13,16 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @copyright   Copyright (c) 2016, WordImpress
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
-class Give_Setting_API_Fields  extends Give_Settings_Page {
+class Give_Setting_API_Fields extends Give_Settings_Page {
 
 	/**
 	 * Give_Setting_API_Fields constructor.
 	 */
-	function __construct(){
-		$this->id = 'give-setting-api-fields';
+	function __construct() {
+		$this->id    = 'give-setting-api-fields';
 		$this->label = esc_html__( 'Setting API Fields', 'give' );
 
-		$this->default_tab = 'setting_1';
+		$this->default_tab = 'text_fields';
 
 		parent::__construct();
 	}
@@ -33,11 +33,13 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 	 *
 	 * @return array
 	 */
-	function get_sections(){
+	function get_sections() {
 		$sections = array(
-			'setting_1' => __( 'Setting 1', 'give' ),
-			'setting_2' => __( 'Setting 2', 'give' ),
-			'setting_3' => __( 'Setting 3', 'give' ),
+			'text_fields'     => __( 'Text Fields', 'give' ),
+			'radio_fields'    => __( 'Radio Fields', 'give' ),
+			'select_fields'    => __( 'Select Fields', 'give' ),
+			'checkbox_fields' => __( 'Checkbox Fields', 'give' ),
+			'file_fields' => __( 'File Fields', 'give' ),
 		);
 
 		return $sections;
@@ -53,9 +55,33 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 		$current_section = give_get_current_setting_section();
 		$settings        = array();
 
-		switch( $current_section ) {
+		switch ( $current_section ) {
 
-			case 'setting_3' :
+			case 'file_fields':
+				$settings = array(
+					/**
+					 * File field setting
+					 */
+					array(
+						'name' => esc_html__( 'File', 'give' ),
+						'desc' => '',
+						'id'   => 'file_field_setting',
+						'type' => 'title',
+					),
+					array(
+						'name' => esc_html__( 'File Field Settings', 'give' ),
+						'desc' => '',
+						'id'   => 'give_file_field_settings',
+						'type' => 'file',
+					),
+					array(
+						'id'   => 'file_field_setting',
+						'type' => 'sectionend',
+					),
+				);
+				break;
+
+			case 'checkbox_fields' :
 				$settings = array(
 					/**
 					 * Checkbox field setting
@@ -64,17 +90,17 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Checkbox', 'give' ),
 						'desc' => '',
 						'id'   => 'checkbox_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Checkbox Field Settings', 'give' ),
 						'desc' => '',
 						'id'   => 'give_checkbox_field_settings',
-						'type' => 'checkbox'
+						'type' => 'checkbox',
 					),
 					array(
 						'id'   => 'checkbox_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 					/**
@@ -84,15 +110,15 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Multi Checkbox', 'give' ),
 						'desc' => '',
 						'id'   => 'multi_checkbox_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
-						'name'              => __( 'Checkbox Field Settings', 'give' ),
-						'desc'              => '',
-						'id'                => 'give_multi_checkbox_field_settings',
-						'type'              => 'multicheck',
-						'default'           => array( 'daily', 'monthly' ),
-						'options'           => array(
+						'name'    => __( 'Checkbox Field Settings', 'give' ),
+						'desc'    => '',
+						'id'      => 'give_multi_checkbox_field_settings',
+						'type'    => 'multicheck',
+						'default' => array( 'daily', 'monthly' ),
+						'options' => array(
 							'daily'   => 'Daily',
 							'weekly'  => 'Weekly',
 							'monthly' => 'Monthly',
@@ -100,32 +126,12 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 					),
 					array(
 						'id'   => 'multi_checkbox_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
-
-					/**
-					 * File field setting
-					 */
-					array(
-						'name' => esc_html__( 'File', 'give' ),
-						'desc' => '',
-						'id'   => 'file_field_setting',
-						'type' => 'title'
-					),
-					array(
-						'name' => esc_html__( 'File Field Settings', 'give' ),
-						'desc' => '',
-						'id'   => 'give_file_field_settings',
-						'type' => 'file'
-					),
-					array(
-						'id'   => 'file_field_setting',
-						'type' => 'sectionend'
-					)
 				);
 				break;
 
-			case 'setting_2' :
+			case 'select_fields':
 				$settings = array(
 					/**
 					 * Select field setting
@@ -134,25 +140,24 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Select', 'give' ),
 						'desc' => '',
 						'id'   => 'select_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
-						'name' => esc_html__( 'Select Field Settings', 'give' ),
-						'desc' => '',
-						'id'   => 'give_select_field_settings',
-						'type' => 'select',
+						'name'    => esc_html__( 'Select Field Settings', 'give' ),
+						'desc'    => '',
+						'id'      => 'give_select_field_settings',
+						'type'    => 'select',
 						'default' => 'option_1',
 						'options' => array(
 							'option_1' => __( 'Option 1', 'give' ),
 							'option_2' => __( 'Option 2', 'give' ),
-							'option_3' => __( 'Option 3', 'give' )
-						)
+							'option_3' => __( 'Option 3', 'give' ),
+						),
 					),
 					array(
 						'id'   => 'select_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
-
 
 					/**
 					 * MultiSelect field setting
@@ -161,24 +166,29 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Multi Select', 'give' ),
 						'desc' => '',
 						'id'   => 'multi_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
-						'name' => esc_html__( 'Multi Select Field Settings', 'give' ),
-						'desc' => '',
-						'id'   => 'give_multi_field_settings',
-						'type' => 'multiselect',
+						'name'    => esc_html__( 'Multi Select Field Settings', 'give' ),
+						'desc'    => '',
+						'id'      => 'give_multi_field_settings',
+						'type'    => 'multiselect',
 						'default' => 'option_1',
 						'options' => array(
 							'option_1' => __( 'Option 1', 'give' ),
 							'option_2' => __( 'Option 2', 'give' ),
-							'option_3' => __( 'Option 3', 'give' )
-						)
+							'option_3' => __( 'Option 3', 'give' ),
+						),
 					),
 					array(
 						'id'   => 'multi_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
+				);
+				break;
+
+			case 'radio_fields' :
+				$settings = array(
 
 					/**
 					 * Radio field setting.
@@ -187,22 +197,22 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Radio', 'give' ),
 						'desc' => '',
 						'id'   => 'radio_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
-						'name' => esc_html__( 'Radio Field Settings', 'give' ),
-						'desc' => '',
-						'id'   => 'give_radio_field_settings',
-						'type' => 'radio',
+						'name'    => esc_html__( 'Radio Field Settings', 'give' ),
+						'desc'    => '',
+						'id'      => 'give_radio_field_settings',
+						'type'    => 'radio',
 						'default' => 'option_1',
 						'options' => array(
 							'option_1' => __( 'Option 1', 'give' ),
-							'option_2' => __( 'Option 2', 'give' )
-						)
+							'option_2' => __( 'Option 2', 'give' ),
+						),
 					),
 					array(
 						'id'   => 'radio_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 					/**
@@ -212,23 +222,23 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Radio inline', 'give' ),
 						'desc' => '',
 						'id'   => 'radio_inline_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
-						'name' => esc_html__( 'Radio Field Settings', 'give' ),
-						'desc' => '',
-						'id'   => 'give_radio_inline_field_settings',
-						'type' => 'radio_inline',
+						'name'    => esc_html__( 'Radio Field Settings', 'give' ),
+						'desc'    => '',
+						'id'      => 'give_radio_inline_field_settings',
+						'type'    => 'radio_inline',
 						'default' => 'option_1',
 						'options' => array(
 							'option_1' => __( 'Option 1', 'give' ),
-							'option_2' => __( 'Option 2', 'give' )
-						)
+							'option_2' => __( 'Option 2', 'give' ),
+						),
 					),
 					array(
 						'id'   => 'radio_inline_field_setting',
-						'type' => 'sectionend'
-					)
+						'type' => 'sectionend',
+					),
 				);
 				break;
 
@@ -242,17 +252,17 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Text', 'give' ),
 						'desc' => '',
 						'id'   => 'text_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Text Field Settings', 'give' ),
 						'desc' => '',
 						'id'   => 'give_text_field_settings',
-						'type' => 'text'
+						'type' => 'text',
 					),
 					array(
 						'id'   => 'text_field_setting',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 					/**
@@ -262,17 +272,17 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Email', 'give' ),
 						'desc' => '',
 						'id'   => 'email_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Email Field Settings', 'give' ),
 						'desc' => '',
 						'id'   => 'give_email_field_settings',
-						'type' => 'email'
+						'type' => 'email',
 					),
 					array(
 						'id'   => 'give_email_field_settings',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 					/**
@@ -282,18 +292,18 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Number', 'give' ),
 						'desc' => '',
 						'id'   => 'number_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Number Field Settings', 'give' ),
 						'desc' => '',
 						'id'   => 'give_number_field_settings',
 						'type' => 'number',
-						'css'  => 'width:12em;'
+						'css'  => 'width:12em;',
 					),
 					array(
 						'id'   => 'give_number_field_settings',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 
@@ -304,18 +314,18 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'Password', 'give' ),
 						'desc' => '',
 						'id'   => 'password_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Password Field Settings', 'give' ),
 						'desc' => '',
 						'id'   => 'give_password_field_settings',
 						'type' => 'password',
-						'css'  => 'width:12em;'
+						'css'  => 'width:12em;',
 					),
 					array(
 						'id'   => 'give_password_field_settings',
-						'type' => 'sectionend'
+						'type' => 'sectionend',
 					),
 
 					/**
@@ -325,7 +335,7 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 						'name' => esc_html__( 'TextArea', 'give' ),
 						'desc' => '',
 						'id'   => 'textarea_field_setting',
-						'type' => 'title'
+						'type' => 'title',
 					),
 					array(
 						'name' => esc_html__( 'Textarea Field Settings', 'give' ),
@@ -335,8 +345,8 @@ class Give_Setting_API_Fields  extends Give_Settings_Page {
 					),
 					array(
 						'id'   => 'give_textarea_field_settings',
-						'type' => 'sectionend'
-					)
+						'type' => 'sectionend',
+					),
 				);
 		}
 
